@@ -30,13 +30,11 @@
 
 ## Key Features
 
-* Sync and/or Async items (online, offline, DB, ...)
+* Online and offline items
 * Searchable dropdown
 * Three dropdown mode: Menu/ BottomSheet/ Dialog
-* Single & multi selection
 * Material dropdown
 * Easy customizable UI
-* Handle Light and Dark theme
 * Easy implementation into statelessWidget
 
 ![](https://github.com/salim-lachdhaf/searchable_dropdown/blob/master/screenshots/Screenshot_4.png?raw=true)
@@ -48,7 +46,7 @@ dropdown_search: <lastest version>
 
 ## Import
 ```dart
-import 'package:dropdown_search/dropdown_search.dart';
+import 'package:dropdown_search/dropdownSearch.dart';
 ```
 
 
@@ -58,23 +56,11 @@ import 'package:dropdown_search/dropdown_search.dart';
 DropdownSearch<String>(
     mode: Mode.MENU,
     showSelectedItem: true,
-    items: ["Brazil", "Italia (Disabled)", "Tunisia", 'Canada'],
+    items: ["Brazil", "Italia", "Tunisia", 'Canada'],
     label: "Menu mode",
     hint: "country in menu mode",
-    popupItemDisabled: (String s) => s.startsWith('I'),
     onChanged: print,
     selectedItem: "Brazil"),
-    
-    
-DropdownSearch<String>.multiSelection(
-    mode: Mode.MENU,
-    showSelectedItem: true,
-    items: ["Brazil", "Italia (Disabled)", "Tunisia", 'Canada'],
-    label: "Menu mode",
-    hint: "country in menu mode",
-    popupItemDisabled: (String s) => s.startsWith('I'),
-    onChanged: print,
-    selectedItems: ["Brazil"]),
 ```
 
 ## customize showed field (itemAsString)
@@ -186,27 +172,14 @@ You can customize the layout of the DropdownSearch and its items. [EXAMPLE](http
 |`errorBuilder`| custom layout for error|
 |`autoFocusSearchBox`| the search box will be focused if true|
 |`popupShape`| custom shape for the popup|
-|`autoValidateMode`|handle auto validation mode|
+|`autoValidate`|handle auto validation|
 |`onSaved`|An optional method to call with the final value when the form is saved via|
 |`validator`|An optional method that validates an input. Returns an error string to display if the input is invalid, or null otherwise.|
 |`clearButton`|customize clear button widget|
-|`clearButtonSplashRadius`|customize clear button splash radius|
 |`dropDownButton`|customize dropdown button widget|
-|`dropDownButtonSplashRadius`|customize dropdown button splash radius|
-|`dropdownBuilderSupportsNullItem`|If true, the dropdownBuilder will continue the uses of material behavior. This will be useful if you want to handle a custom UI only if the item !=null|
-|`popupItemDisabled`|defines if an item of the popup is enabled or not, if the item is disabled, it cannot be clicked|
-|`popupBarrierColor`|set a custom color for the popup barrier|
-|`searchBoxController`|search box controller|
-|`clearButtonBuilder`|custom clear button builder|
-|`dropdownButtonBuilder`|custom dropdown button builder|
-|`onBeforeChange`|callback executed before applying value change|
-|`searchDelay`|delay before searching|
-|`popupSafeArea`|set properties of popup safe area|
-|`scrollbarProps`|scrollbar properties|
-|`popupBarrierDismissible`|whether modal can be dismissed by tapping the modal barrier|
 
 # Attention
-To use a template as an item type, and you don't want to use a custom function **itemAsString** and **compareFn** you **need** to implement **toString**, **equals** and **hashcode**, as shown below:
+To use a template as an item type, and you don't want to use a custom fonction **itemAsString** and **compareFn** you **need** to implement **toString**, **equals** and **hashcode**, as shown below:
 
 
 ```dart
